@@ -1,29 +1,11 @@
-// Bài 2: Tạo 5 thread, mỗi thread in ra số từ 1-10 với tên thread
-class NumberThread extends Thread {
-    private int threadNumber;
-    
-    public NumberThread(int threadNumber) {
-        this.threadNumber = threadNumber;
-        setName("Thread-" + threadNumber);
-    }
-    
-    @Override
-    public void run() {
-        System.out.print(getName() + ": ");
-        for (int i = 1; i <= 10; i++) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-}
+import java.util.Arrays;
+import java.util.List;
 
 public class bai2 {
     public static void main(String[] args) {
-        // Tạo và khởi chạy 5 thread
-        for (int i = 1; i <= 5; i++) {
-            NumberThread thread = new NumberThread(i);
-            thread.start();
-        }
+        List<String> cities = Arrays.asList("Hanoi", "Ho Chi Minh", "Da Nang", "Hue");
+        java.util.Collections.sort(cities, (a, b) -> a.length() - b.length());
+        cities.forEach(System.out::println);
     }
 }
 
